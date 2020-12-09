@@ -1,0 +1,20 @@
+version: '3.7'
+networks:
+  component_net:
+    driver: bridge
+    external: true
+services:
+  go:
+    build: .
+    image: service_go_news
+    container_name: service_news
+    restart: always
+    networks:
+      - component_net
+    external_links:
+      - mysql
+      - redis
+    ports:
+      - '3000:3000'
+    volumes:
+      - /Users/miluyu/Documents/worker/logs/news_service:/www/log
