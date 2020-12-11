@@ -6,6 +6,8 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/gin-gonic/gin"
+
 	validator "gopkg.in/go-playground/validator.v8"
 )
 
@@ -35,4 +37,12 @@ func ErrorResponse(err error) serializer.Response {
 		Msg:    "参数错误",
 		Error:  fmt.Sprint(err),
 	}
+}
+
+// CheckToken
+func CheckToken(c *gin.Context) {
+	c.JSON(200, serializer.Response{
+		Status: 200,
+		Msg:    "ok",
+	})
 }

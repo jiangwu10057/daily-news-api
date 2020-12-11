@@ -26,6 +26,17 @@ func NewRouter() *gin.Engine {
 		//媒体操作
 		v1.GET("media", api.ListMedia)
 		v1.GET("media/:id", api.ShowMedia)
+
+		//美句操作
+		v1.GET("sentence", api.ListSentence)
+		v1.GET("sentence/:id", api.ShowSentence)
+
+		authed := v1.Group("/")
+		authed.Use(middleware.JWT())
+		{
+			//验证token
+			authed.GET("ping", api.CheckToken)
+		}
 	}
 	return r
 }

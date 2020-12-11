@@ -4,10 +4,10 @@ networks:
     driver: bridge
     external: true
 services:
-  go:
+  go_dev:
     build: .
-    image: service_go_news
-    container_name: service_news
+    image: service_go_dev_news
+    container_name: service_dev_news
     restart: always
     networks:
       - component_net
@@ -15,6 +15,9 @@ services:
       - mysql
       - redis
     ports:
-      - '3000:3000'
+      - '3001:3000'
     volumes:
-      - /Users/miluyu/Documents/worker/logs/news_service:/www/log
+      - ./src:/news
+      - ./.air.toml:/www/.air.toml
+      - ./conf:/www/conf
+      -  /Users/miluyu/Documents/worker/logs/news_service:/news/logs

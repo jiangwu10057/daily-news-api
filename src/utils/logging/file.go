@@ -9,9 +9,9 @@ import (
 
 var (
 	// LogSavePath 日志存放路径
-	LogSavePath = "runtime/logs/"
+	LogSavePath = "logs"
 	// LogSaveName 日志存放名称
-	LogSaveName = "log"
+	LogSaveName = ""
 	// LogFileExt a
 	LogFileExt = "log"
 	// TimeFormat 日期格式化
@@ -25,8 +25,7 @@ func getLogFilePath() string {
 func getLogFileFullPath() string {
 	prefixPath := getLogFilePath()
 	suffixPath := fmt.Sprintf("%s%s.%s", LogSaveName, time.Now().Format(TimeFormat), LogFileExt)
-
-	return fmt.Sprintf("%s%s", prefixPath, suffixPath)
+	return fmt.Sprintf("%s/%s", prefixPath, suffixPath)
 }
 
 func openLogFile(filePath string) *os.File {
