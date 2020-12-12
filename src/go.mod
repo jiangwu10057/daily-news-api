@@ -11,11 +11,9 @@ require (
 	github.com/google/uuid v1.1.1
 
 	github.com/joho/godotenv v1.3.0
-	golang.org/x/crypto v0.0.0-20190829043050-9756ffdc2472
+	golang.org/x/crypto v0.0.0-20191205180655-e7c4368fe9dd
 	gopkg.in/go-playground/validator.v8 v8.18.2
-
 	gopkg.in/yaml.v2 v2.2.2
 	gorm.io/driver/mysql v1.0.3
-
 	gorm.io/gorm v1.20.8
 )

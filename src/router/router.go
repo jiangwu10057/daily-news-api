@@ -19,23 +19,26 @@ func NewRouter() *gin.Engine {
 	// 路由
 	v1 := r.Group("/api/v1")
 	{
-		//新闻操作
-		v1.GET("news", api.ListNews)
-		v1.GET("news/:id", api.ShowNews)
-
-		//媒体操作
-		v1.GET("media", api.ListMedia)
-		v1.GET("media/:id", api.ShowMedia)
-
-		//美句操作
-		v1.GET("sentence", api.ListSentence)
-		v1.GET("sentence/:id", api.ShowSentence)
+		//授权
+		v1.POST("auth", api.Auth)
 
 		authed := v1.Group("/")
 		authed.Use(middleware.JWT())
 		{
 			//验证token
 			authed.GET("ping", api.CheckToken)
+
+			//新闻操作
+			authed.GET("news", api.ListNews)
+			authed.GET("news/:id", api.ShowNews)
+
+			//媒体操作
+			authed.GET("media", api.ListMedia)
+			authed.GET("media/:id", api.ShowMedia)
+
+			//美句操作
+			authed.GET("sentence", api.ListSentence)
+			authed.GET("sentence/:id", api.ShowSentence)
 		}
 	}
 	return r
