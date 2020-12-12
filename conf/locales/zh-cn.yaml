@@ -8,3 +8,10 @@ Field:
   UserName: "用户名"
   Password: "密码"
   PasswordConfirm: "密码校验"
+ResponseCode:
+  Success: "成功"
+  Fail: "失败"
+Error:
+  Auth: "Token错误"
+  InvalidParams: "请求参数错误"
+  DATABASE: "数据库操作出错，请重试"

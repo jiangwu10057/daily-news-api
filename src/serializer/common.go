@@ -1,5 +1,9 @@
 package serializer
 
+import(
+	"news/utils/exception"
+)
+
 // Response 基础序列化器
 type Response struct {
 	Status int         `json:"status"`
@@ -28,9 +32,10 @@ type TrackedErrorResponse struct {
 
 // BuildListResponse 带有总数的列表构建器
 func BuildListResponse(items interface{}, total uint) Response {
+	code := exception.SUCCESS
 	return Response{
-		Status: 200,
-		Msg:    "ok",
+		Status: code,
+		Msg: exception.GetMsg(code),
 		Data: DataList{
 			Items: items,
 			Total: total,
