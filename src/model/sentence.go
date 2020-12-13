@@ -11,10 +11,6 @@ type Sentence struct {
 	DislikeCount uint64
 	From string
 }
-
-type Tabler interface {
-	TableName() string
-}
   
 func (Sentence) TableName() string {
 	return "baidu_sentence"

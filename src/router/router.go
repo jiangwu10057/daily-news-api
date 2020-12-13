@@ -39,6 +39,8 @@ func NewRouter() *gin.Engine {
 			//美句操作
 			authed.GET("sentence", api.ListSentence)
 			authed.GET("sentence/:id", api.ShowSentence)
+
+			authed.POST("dailyReport", api.ShowDailyReport)
 		}
 	}
 	return r

@@ -49,3 +49,7 @@ func Database(dsn string) {
 
 	migration()
 }
+
+type Tabler interface {
+	TableName() string
+}
