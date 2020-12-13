@@ -4,7 +4,7 @@ import "news/model"
 
 //Sentence 美句序列化器
 type Sentence struct {
-	Id uint64 `json:"id"`
+	Id string `json:"id"`
 	Author string `json:"author"`
 	String string `json:"string"`
 	Tag string `json:"tag"`

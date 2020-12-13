@@ -4,8 +4,10 @@ const (
 	SUCCESS                 = 200
 	UPDATE_PASSWORD_SUCCESS = 201
 	NOT_EXIST_IDENTIFIER    = 202
-	ERROR                   = 500
 	INVALID_PARAMS          = 400
+	ERROR_AUTH = 401
+	ERROR = 500
+	
 
 	ERROR_EXIST_NICK           = 10001
 	ERROR_EXIST_USER           = 10002
@@ -20,7 +22,7 @@ const (
 	ERROR_AUTH_CHECK_TOKEN_FAIL       = 20001
 	ERROR_AUTH_CHECK_TOKEN_TIMEOUT    = 20002
 	ERROR_AUTH_TOKEN                  = 20003
-	ERROR_AUTH                        = 20004
+	
 	ERROR_AUTH_INSUFFICIENT_AUTHORITY = 20005
 	ERROR_READ_FILE                   = 20006
 	ERROR_SEND_EMAIL                  = 20007

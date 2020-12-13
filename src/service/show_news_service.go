@@ -15,7 +15,8 @@ type ShowNewsService struct {
 func (service *ShowNewsService) Show(id string) serializer.Response {
 	var news model.News
 	code := exception.SUCCESS
-	err := model.DB.First(&news, id).Error
+	err := model.DB.First(&news, "id = ?", id).Error
+
 	if err != nil {
 		logging.Info(err)
 		code = exception.ERROR_DATABASE

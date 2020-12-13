@@ -56,7 +56,7 @@ type ShowSentenceService struct {
 func (service *ShowSentenceService) Show(id string) serializer.Response {
 	var sentence model.Sentence
 	code := exception.SUCCESS
-	err := model.DB.First(&sentence, id).Error
+	err := model.DB.First(&sentence, "id = ?", id).Error
 	if err != nil {
 		logging.Info(err)
 		code = exception.ERROR_DATABASE

@@ -2,7 +2,7 @@ package model
 
 // 美句信息
 type Sentence struct {
-	Id uint64
+	Id string
 	Author string
 	String string
 	Tag string
@@ -10,4 +10,12 @@ type Sentence struct {
 	LikeCount uint64
 	DislikeCount uint64
 	From string
+}
+
+type Tabler interface {
+	TableName() string
+}
+  
+func (Sentence) TableName() string {
+	return "baidu_sentence"
 }
