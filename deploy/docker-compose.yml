@@ -19,4 +19,4 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - /Users/miluyu/Documents/worker/logs/news_service:/www/logs
+      - /home/data/logs/news_service:/www/logs
