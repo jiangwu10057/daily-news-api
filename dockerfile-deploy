@@ -2,7 +2,7 @@ FROM golang:1.15.6-alpine3.12 as build
 
 ENV GOPROXY=https://goproxy.io
 
-ADD ../src /news
+ADD src /news
 
 WORKDIR /news
 
@@ -21,7 +21,7 @@ WORKDIR /www
 
 COPY --from=build /news/news_server /usr/bin/news_server
 
-ADD ../conf /www/conf
+ADD conf /www/conf
 
 RUN chmod +x /usr/bin/news_server
 
