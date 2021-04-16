@@ -25,8 +25,6 @@ func (service *ShowDailyReportService) Show() serializer.Response {
 		service.Day = time.Now().In(cstZone).Format(TIMEFORMAT)
 	}
 
-	fmt.Println(service.Day)
-
 	var dailyReport model.DailyReport
 	code := exception.SUCCESS
 
