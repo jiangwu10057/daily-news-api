@@ -7,16 +7,16 @@ services:
   go:
     build:
       context: ..
-      dockerfile: dockerfile-deploy
-    image: service_go_news
-    container_name: service_news
+      dockerfile: ./deploy/Dockerfile
+    image: news_api
+    container_name: news_api
     restart: always
     networks:
       - component_net
     external_links:
       - mysql
       - redis
-    ports:
-      - '3000:3000'
+    # ports:
+    #   - '3000:3000'
     volumes:
       - /home/data/logs/news_service:/www/logs

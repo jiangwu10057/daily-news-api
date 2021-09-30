@@ -4,10 +4,12 @@ networks:
     driver: bridge
     external: true
 services:
-  go_dev:
-    build: .
-    image: service_go_dev_news
-    container_name: service_dev_news
+  news-api:
+    build: 
+      context: ../..
+      dockerfile: ./deploy/dev/Dockerfile
+    image: news-api
+    container_name: news-api
     restart: always
     networks:
       - component_net
@@ -17,7 +19,7 @@ services:
     ports:
       - '3001:3000'
     volumes:
-      - ./src:/news
-      - ./.air.toml:/www/.air.toml
-      - ./conf:/www/conf
+      - ../src:/news
+      - ../.air.toml:/www/.air.toml
+      - ../conf:/www/conf
       -  /Users/miluyu/Documents/worker/logs/news_service:/news/logs
